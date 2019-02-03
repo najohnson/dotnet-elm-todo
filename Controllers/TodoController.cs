@@ -57,13 +57,6 @@ namespace TodoApi.Controllers
                 return BadRequest();
             }
 
-            // Lookup the todo item first
-            var todoItem = await _context.TodoItems.FindAsync(id);
-            if (todoItem == null)
-            {
-                return NotFound();
-            }
-
             _context.Entry(item).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
@@ -84,7 +77,7 @@ namespace TodoApi.Controllers
             _context.TodoItems.Remove(todoItem);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok(todoItem);
         }
     }
 }
