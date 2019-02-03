@@ -1,0 +1,6 @@
+CREATE TABLE TodoItems (
+   id         INTEGER  NOT NULL AUTO_INCREMENT,
+   name       VARCHAR(256) NOT NULL,
+   isComplete TINYINT(1) NOT NULL DEFAULT '0',
+   PRIMARY KEY (id)
+);
